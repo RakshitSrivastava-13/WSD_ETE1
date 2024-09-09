@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive News Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Inline CSS for background image */
+        body {
+            background-image: url('pexels-pixabay-261621.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-lg max-w-md">
+        <!-- Sign-Up Form -->
+        <div id="signUpForm">
+            <h2 class="text-2xl font-bold mb-4 text-center">Sign Up to Access News</h2>
+            <form id="registrationForm">
+                <div class="mb-4">
+                    <label for="fullName" class="block text-lg font-medium">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required class="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="error-message text-red-500 text-sm" id="fullNameError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-lg font-medium">Email</label>
+                    <input type="email" id="email" name="email" required class="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="error-message text-red-500 text-sm" id="emailError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-lg font-medium">Password</label>
+                    <input type="password" id="password" name="password" required class="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="error-message text-red-500 text-sm" id="passwordError"></span>
+                </div>
+                <div class="mb-4">
+                    <label for="confirmPassword" class="block text-lg font-medium">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required class="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span class="error-message text-red-500 text-sm" id="confirmPasswordError"></span>
+                </div>
+                <button type="submit" id="submitBtn" class="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-600">Register</button>
+            </form>
+        </div>
+
+        <!-- News Display Section -->
+        <div id="newsContainer" class="hidden">
+            <h2 class="text-2xl font-bold mb-4 text-center">Latest News</h2>
+            <div class="mb-4 flex justify-between items-center">
+                <input type="text" id="filter" placeholder="Search..." class="border p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select id="sortBy" class="border p-2 ml-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="date">Sort by Date</option>
+                    <option value="title">Sort by Title</option>
+                </select>
+            </div>
+            <div id="newsList" class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <!-- News articles will be displayed here -->
+            </div>
+            <div id="pagination" class="mt-4 flex justify-center">
+                <!-- Pagination controls will be displayed here -->
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
